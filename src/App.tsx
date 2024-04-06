@@ -9,6 +9,7 @@ import DashboardIcon from "./assets/Icons/DashboardIcon";
 import TourismIcon from "./assets/Icons/TourismIcon";
 import Spinner from "./components/spinners/Spinner";
 import AppRoutes from "./router/AppRoutes";
+import Footer from "./components/footers/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ function App() {
           <div className="flex flex-col w-full h-full">
             <Header />
             <AppRoutes />
+            <Footer />
           </div>
         </div>
       )}
