@@ -1,28 +1,34 @@
-import { useEffect } from "react";
-import { Navigate, useRoutes } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import Login from "../pages/Login/Login";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Tourism from "../pages/Tourism/Tourism";
-import { loadUserFromLocalStorage } from "../redux/slices/authSlice";
 
-const AppRoutes: React.FC = () => {
-  const dispatch = useDispatch();
+const AppRoutes = () => {
+  const isActiveUser = useSelector(
+    (state: RootState) => state.auth.isActiveUser
+  );
 
-  useEffect(() => {
-    dispatch(loadUserFromLocalStorage());
-  }, [dispatch]);
-
-  const routes = useRoutes([
-    { path: "/", element: <Navigate to="/login" /> },
-    { path: "/login", element: <Login /> },
-    { path: "/dashboard", element: <Dashboard /> },
-    { path: "/tourism", element: <Tourism /> },
-    { path: "*", element: <Navigate to="/dashboard" /> }, // Redirige a dashboard si la ruta no coincide
-  ]);
-
-  return routes;
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          isActiveUser ? <Navigate to="/dashboard" /> : <Navigate to="/login" />
+        }
+      />
+      <Route path="/login" element={<Login />} />
+      <Route
+        path="/tourism"
+        element={isActiveUser ? <Tourism /> : <Navigate to="/login" />}
+      />
+      <Route
+        path="/dashboard"
+        element={isActiveUser ? <Dashboard /> : <Navigate to="/login" />}
+      />
+    </Routes>
+  );
 };
 
 export default AppRoutes;

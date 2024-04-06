@@ -1,6 +1,6 @@
-import Button from '../buttons/Button';
-import Input from '../inputs/Input';
-import Text from '../texts/Text';
+import Button from "../buttons/Button";
+import Input from "../inputs/Input";
+import Text from "../texts/Text";
 
 type Props = {
   handleLogin: () => void;
@@ -20,7 +20,7 @@ const LoginBox = ({
   return (
     <div className="flex flex-col py-7 lg:p-8 justify-center items-center w-full lg:w-1/2 lg:h-1/2 lg:shadow-lg rounded-md bg-white">
       <Text
-        desing="text-4xl lg:text-5xl font-bold text-primary mb-2"
+        design="text-4xl lg:text-5xl font-bold text-primary mb-2"
         text="Login"
       />
       <div className="w-full flex flex-col gap-8 px-6 lg:p-0 justify-center items-center">
@@ -32,10 +32,10 @@ const LoginBox = ({
               value={infoLogin.email}
               onChange={(e) => {
                 setInfoLogin({ ...infoLogin, email: e.target.value });
-                setErrors({ ...errors, email: '' });
+                setErrors({ ...errors, email: "" });
               }}
             />
-            {errors.email && <Text desing="text-red-500" text={errors.email} />}
+            {errors.email && <Text design="text-red-500" text={errors.email} />}
           </div>
           <div className="w-full flex flex-col gap-1">
             <Input
@@ -44,11 +44,11 @@ const LoginBox = ({
               value={infoLogin.password}
               onChange={(e) => {
                 setInfoLogin({ ...infoLogin, password: e.target.value });
-                setErrors({ ...errors, password: '' });
+                setErrors({ ...errors, password: "" });
               }}
             />
             {errors.password && (
-              <Text desing="text-red-500" text={errors.password} />
+              <Text design="text-red-500" text={errors.password} />
             )}
           </div>
         </div>

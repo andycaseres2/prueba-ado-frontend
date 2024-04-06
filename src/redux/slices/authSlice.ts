@@ -17,7 +17,8 @@ const authSlice = createSlice({
   reducers: {
     login(state, action: PayloadAction<User>) {
       state.user = action.payload;
-      state.isActiveUser = true;
+      state.isActiveUser =
+        state.user.email && state.user.password ? true : false;
       localStorage.setItem("user", JSON.stringify(action.payload));
     },
     logout(state) {
@@ -30,7 +31,8 @@ const authSlice = createSlice({
       if (userJSON) {
         try {
           state.user = JSON.parse(userJSON);
-          state.isActiveUser = state.user !== null && true;
+          state.isActiveUser =
+            state.user?.email && state.user?.password ? true : false;
         } catch (error) {
           console.error("Error al analizar JSON del localStorage:", error);
           localStorage.removeItem("user");
