@@ -13,18 +13,25 @@ type Props = {
 const Pagination = ({ setCurrentPage, currentPage, totalPages }: Props) => {
   const pagesToShow = 5;
 
-  const goToPrev = () =>
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  const goToPrev = () => {
+    const newPage = Math.max(currentPage - 1, 1);
+    setCurrentPage(newPage);
+  };
 
-  const goToNext = () =>
-    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  const goToNext = () => {
+    const newPage = Math.min(currentPage + 1, totalPages || 1);
+    setCurrentPage(newPage);
+  };
 
   const handleClick = (page: number) => setCurrentPage(page);
 
-  const jumpToPage = (increment: number) =>
-    setCurrentPage((prevPage) =>
-      Math.max(Math.min(prevPage + increment, totalPages || 1), 1)
+  const jumpToPage = (increment: number) => {
+    const newPage = Math.max(
+      Math.min(currentPage + increment, totalPages || 1),
+      1
     );
+    setCurrentPage(newPage);
+  };
 
   const renderPageNumbers = () => {
     const pageNumbers = [];
