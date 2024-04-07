@@ -54,7 +54,7 @@ function App() {
       ) : !isActiveUser ? (
         <Login />
       ) : (
-        <div className="flex w-full h-full">
+        <div className="flex flex-col lg:flex-row w-full h-full">
           <Sidebar menu={menu} />
           <div className="flex flex-col w-full h-full">
             <Header />

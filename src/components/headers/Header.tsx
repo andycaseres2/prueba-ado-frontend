@@ -42,7 +42,7 @@ const Header = () => {
           action={() => setIsOpenPop(!isOpenPop)}
         />
         {isOpenPop && (
-          <div className="absolute top-16 right-8 ">
+          <div className="absolute top-40 lg:top-16 right-8 ">
             <PopOver
               design="hover:bg-primary hover:text-white rounded w-32"
               options={optionsPop}

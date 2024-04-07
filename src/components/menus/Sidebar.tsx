@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ExpandedLeftIcon from "../../assets/Icons/ExpandedLeftIcon";
 import ExpandedRigthIcon from "../../assets/Icons/ExpandedRigthIcon";
+import Text from "./../texts/Text";
+import Image from "../images/Image";
 
 interface Menu {
   id: number;
@@ -22,11 +24,13 @@ const Sidebar = ({ menu }: Props) => {
   return (
     <div
       className={`${
-        isExpandedMenu ? "w-[25%]" : "w-[8%]"
-      } w-[25%] h-screen flex flex-col items-center bg-primary py-6 relative`}
+        isExpandedMenu ? "w-[100%] lg:w-[25%]" : "w-[100%] lg:w-[8%]"
+      } h-screen flex flex-col items-center bg-primary lg:py-6 relative`}
     >
       <div
-        className={`absolute top-4  ${isExpandedMenu ? "right-4" : "right-8"}`}
+        className={`hidden lg:block absolute top-4  ${
+          isExpandedMenu ? "right-4" : "right-8"
+        }`}
       >
         {isExpandedMenu ? (
           <ExpandedRigthIcon
@@ -40,23 +44,30 @@ const Sidebar = ({ menu }: Props) => {
           />
         )}
       </div>
-
-      <img
-        className={`w-1/2  ${isExpandedMenu ? "mt-8" : "mt-12"}`}
-        src="https://images.vexels.com/media/users/3/223088/isolated/preview/21470714072ecdd016b65cc8ba2b3424-dise-ntilde-o-de-la-bandera-de-colombia-brushy-by-vexels.png"
+      <Image
+        design={`hidden lg:block w-1/2  ${isExpandedMenu ? "mt-8" : "mt-12"}`}
+        img="https://images.vexels.com/media/users/3/223088/isolated/preview/21470714072ecdd016b65cc8ba2b3424-dise-ntilde-o-de-la-bandera-de-colombia-brushy-by-vexels.png"
         alt="logo"
       />
-      <div className="flex flex-col items-start w-full text-white mt-8">
+
+      <div className="flex flex-row lg:flex-col items-start w-full text-white lg:mt-8">
         {menu.map((item) => (
           <a
             key={item.id}
             className={`w-full text-lg py-3 px-4 hover:bg-primary-red-300 flex gap-2 items-center ${
               location.pathname === item.path ? "bg-primary-red-300" : ""
-            } ${isExpandedMenu ? "justify-start" : "justify-center"}`}
+            } ${
+              isExpandedMenu
+                ? "justify-center lg:justify-start"
+                : "justify-center"
+            }`}
             href={item.path}
           >
             {item.icon}
-            {isExpandedMenu && item.title}
+            <Text
+              design="hidden lg:block"
+              text={isExpandedMenu ? item.title : ""}
+            />
           </a>
         ))}
       </div>

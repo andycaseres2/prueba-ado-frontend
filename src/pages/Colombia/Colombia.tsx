@@ -38,7 +38,7 @@ const Colombia = () => {
         </div>
       ) : (
         <div className="flex w-full overflow-hidden overflow-y-auto h-full mt-4">
-          <div className="flex flex-col gap-3 items-center w-full p-4">
+          <div className="flex flex-col gap-3 items-center w-full lg:p-4">
             {dataCountry && (
               <>
                 <Text
@@ -51,15 +51,17 @@ const Colombia = () => {
                   alt={dataCountry.name}
                 />
                 <Text
-                  design="text-xl px-8 text-justify"
+                  design="text-xl px-4 lg:px-8 text-justify"
                   text={dataCountry.description}
                 />
-                <div className="w-full py-2 flex flex-col items-center justify-center">
-                  <Text
-                    design="text-3xl font-bold text-primary mb-2"
-                    text="Additional Information:"
-                  />
-                  <ul className="w-full py-2 flex flex-wrap justify-center gap-4">
+                <div className="w-full py-2 flex flex-col items-center justify-center px-4 lg:px-8">
+                  <div className="w-full h-full flex justify-center lg:justify-start">
+                    <Text
+                      design="w-max text-3xl font-bold text-primary mb-2"
+                      text="Additional Information:"
+                    />
+                  </div>
+                  <ul className="w-full py-2 flex flex-wrap gap-4">
                     {Object.entries(dataCountry)
                       .filter(
                         ([key]) =>
@@ -70,7 +72,7 @@ const Colombia = () => {
                       )
                       .map(([key, value]) => (
                         <div
-                          className="flex flex-col items-center shadow-md rounded-lg p-4 text-white bg-primary"
+                          className="w-full  lg:w-max flex flex-col items-center shadow-md rounded-lg p-4 text-white bg-primary"
                           key={key}
                         >
                           <Text

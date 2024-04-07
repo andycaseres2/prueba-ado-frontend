@@ -52,6 +52,18 @@ const Tourism = () => {
     getCountry();
   }, [currentPage]);
 
+  useEffect(() => {
+    if (modalAttractionOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [modalAttractionOpen]);
+
   return (
     <>
       {loading ? (
@@ -83,7 +95,7 @@ const Tourism = () => {
                     />
                   </div>
                 ))}
-                <div className="w-full flex justify-end pb-4">
+                <div className="w-full flex justify-center lg:justify-end pb-4">
                   <Pagination
                     currentPage={currentPage}
                     setCurrentPage={setCurrentPage}

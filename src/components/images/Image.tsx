@@ -1,9 +1,10 @@
 type Props = {
   img?: string;
   design?: string;
+  alt?: string;
 };
 
-const Image = ({ img, design }: Props) => {
+const Image = ({ img, design, alt }: Props) => {
   const defaultImageUrl =
     "https://www.energyfit.com.mk/wp-content/plugins/ap_background/images/default/default_large.png";
 
@@ -17,7 +18,7 @@ const Image = ({ img, design }: Props) => {
     <img
       className={`${design || "w-full h-full"} rounded-md object-cover`}
       src={img || defaultImageUrl}
-      alt="attraction"
+      alt={alt}
       onError={handleError}
     />
   );

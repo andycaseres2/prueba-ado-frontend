@@ -68,7 +68,7 @@ const Dashboard = () => {
       ) : (
         <div className="flex w-full overflow-hidden overflow-y-auto h-full mt-4">
           <div className="flex flex-col gap-3 items-center w-full p-4">
-            <div className="flex gap-8 w-1/2 justify-center py-4">
+            <div className="flex gap-8 w-full lg:w-1/2 justify-center py-4">
               <SearchInput
                 action={getCountry}
                 search={citySearch}
@@ -77,7 +77,7 @@ const Dashboard = () => {
               <Button text="Search" action={getCountry} />
             </div>
 
-            <div className="w-full justify-start px-8 py-2 flex flex-col gap-2">
+            <div className="w-full justify-start px-2 lg:px-8 pb-10 flex flex-col gap-2">
               <Text
                 design="text-4xl lg:text-5xl font-bold text-primary mb-2"
                 text={dataCity?.name}
