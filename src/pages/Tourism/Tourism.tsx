@@ -28,7 +28,7 @@ const Tourism = () => {
   useEffect(() => {
     const getCountry = async () => {
       try {
-        const url = `https://api-colombia.com/api/v1/TouristicAttraction/pagedList?Page=${currentPage}&PageSize=9`;
+        const url = `https://api-colombia.com/api/v1/TouristicAttraction/pagedList?Page=${currentPage}&PageSize=10`;
 
         const response = await getData<{
           data: Attraction[];
