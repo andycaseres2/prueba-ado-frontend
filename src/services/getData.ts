@@ -10,7 +10,9 @@ export const getData = async <T>(url: string): Promise<ApiResponse<T>> => {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || "Error al obtener los datos");
+      throw new Error(
+        data.message || "Error al obtener los datos desde getData"
+      );
     }
 
     return { data, status: response.status };

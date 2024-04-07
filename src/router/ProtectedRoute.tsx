@@ -1,5 +1,5 @@
-import { Navigate, Route } from 'react-router-dom';
-import { User } from '../types/User.types';
+import { Navigate, Route } from "react-router-dom";
+import { User } from "../models/User.types";
 
 type Props = {
   user: User | null;

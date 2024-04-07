@@ -51,8 +51,8 @@ const Sidebar = ({ menu }: Props) => {
           <a
             key={item.id}
             className={`w-full text-lg py-3 px-4 hover:bg-primary-red-300 flex gap-2 items-center ${
-              isExpandedMenu ? "justify-start" : "justify-center"
-            }`}
+              location.pathname === item.path ? "bg-primary-red-300" : ""
+            } ${isExpandedMenu ? "justify-start" : "justify-center"}`}
             href={item.path}
           >
             {item.icon}

@@ -2,8 +2,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import Login from "../pages/Login/Login";
-import Dashboard from "../pages/Dashboard/Dashboard";
 import Tourism from "../pages/Tourism/Tourism";
+import Colombia from "../pages/Colombia/Colombia";
+import Dashboard from "../pages/Dashboard/Dashboard";
 
 const AppRoutes = () => {
   const isActiveUser = useSelector(
@@ -22,6 +23,10 @@ const AppRoutes = () => {
       <Route
         path="/tourism"
         element={isActiveUser ? <Tourism /> : <Navigate to="/login" />}
+      />
+      <Route
+        path="/colombia"
+        element={isActiveUser ? <Colombia /> : <Navigate to="/login" />}
       />
       <Route
         path="/dashboard"

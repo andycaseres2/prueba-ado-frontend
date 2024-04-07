@@ -19,4 +19,6 @@ export interface Country {
   region: string;
   borders: string[];
   flags: string[];
+  postalCode?: string;
+  departmentId?: number;
 }

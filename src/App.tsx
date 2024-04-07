@@ -10,6 +10,7 @@ import TourismIcon from "./assets/Icons/TourismIcon";
 import Spinner from "./components/spinners/Spinner";
 import AppRoutes from "./router/AppRoutes";
 import Footer from "./components/footers/Footer";
+import MapIcon from "./assets/Icons/MapIcon";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,12 +37,18 @@ function App() {
       path: "/tourism",
       icon: <TourismIcon design="w-10 h-10" />,
     },
+    {
+      id: 2,
+      title: "Colombia",
+      path: "/colombia",
+      icon: <MapIcon design="w-10 h-10" />,
+    },
   ];
 
   return (
     <div className="flex w-full h-screen">
       {isCheckingAuth ? (
-        <div>
+        <div className="w-full h-full flex justify-center items-center">
           <Spinner design="w-10 h-10" />
         </div>
       ) : !isActiveUser ? (

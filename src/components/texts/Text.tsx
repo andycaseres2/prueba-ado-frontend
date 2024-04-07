@@ -1,4 +1,4 @@
-type Props = { text?: string; design?: string };
+type Props = { text?: string | number; design?: string };
 
 const Text = ({ text, design }: Props) => {
   return <span className={`${design}`}>{text}</span>;
