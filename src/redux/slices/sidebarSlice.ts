@@ -6,7 +6,7 @@ interface SidebarState {
 }
 
 const initialState: SidebarState = {
-  isExpandedMenu: localStorage.getItem("isExpandedMenu") === "true", // Inicializa desde el almacenamiento local
+  isExpandedMenu: localStorage.getItem("isExpandedMenu") === "true" || true,
 };
 
 const sidebarSlice = createSlice({
@@ -15,7 +15,7 @@ const sidebarSlice = createSlice({
   reducers: {
     toggleMenu(state) {
       state.isExpandedMenu = !state.isExpandedMenu;
-      localStorage.setItem("isExpandedMenu", state.isExpandedMenu.toString()); // Guarda en el almacenamiento local
+      localStorage.setItem("isExpandedMenu", state.isExpandedMenu.toString());
     },
   },
 });

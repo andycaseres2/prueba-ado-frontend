@@ -36,7 +36,6 @@ const Tourism = () => {
         }>(url);
 
         if (response.status === 200) {
-          console.log("response", response.data);
           setTotalPages(response.data?.pageCount || 1); // Asegúrate de manejar el caso en que pageCount no esté definido
           setDataAttraction(response.data?.data || []);
         } else {

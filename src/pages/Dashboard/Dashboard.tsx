@@ -21,7 +21,6 @@ const Dashboard = () => {
 
       if (response.status === 200) {
         if (response.data && response.data.length > 0) {
-          console.log("response", response.data[0]);
           setDataCity(response.data[0]);
         } else {
           console.error("No se encontraron datos para la ciudad:", citySearch);

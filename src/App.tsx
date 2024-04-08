@@ -38,7 +38,7 @@ function App() {
       icon: <TourismIcon design="w-10 h-10" />,
     },
     {
-      id: 2,
+      id: 3,
       title: "Colombia",
       path: "/colombia",
       icon: <MapIcon design="w-10 h-10" />,
