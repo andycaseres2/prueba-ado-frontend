@@ -1,25 +1,24 @@
-import { useState } from "react";
 import ExpandedLeftIcon from "../../assets/Icons/ExpandedLeftIcon";
 import ExpandedRigthIcon from "../../assets/Icons/ExpandedRigthIcon";
 import Text from "./../texts/Text";
 import Image from "../images/Image";
-
-interface Menu {
-  id: number;
-  title: string;
-  path: string;
-  icon: JSX.Element | null;
-}
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { toggleMenu } from "../../redux/slices/sidebarSlice";
+import { SidebarItem } from "../../models/SidebarItem";
 
 type Props = {
-  menu: Menu[];
+  menu: SidebarItem[];
 };
 
 const Sidebar = ({ menu }: Props) => {
-  const [isExpandedMenu, setIsExpandedMenu] = useState(true);
+  const isExpandedMenu = useSelector(
+    (state: RootState) => state.sidebar.isExpandedMenu
+  );
+  const dispatch = useDispatch();
 
   const toggleExpandedMenu = () => {
-    setIsExpandedMenu(!isExpandedMenu);
+    dispatch(toggleMenu());
   };
   return (
     <div
